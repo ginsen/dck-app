@@ -1,0 +1,24 @@
+###> IDE (SublimeText, Eclipse, Zend Studio, Netbeans, PHPStorm, TextMate2, Visual Studio Code) ###
+Capfile
+.buildpath
+/.idea/
+nbproject
+.project
+.settings
+.sublime-project
+TextMate2
+.vscode
+**/.DS_Store
+###< IDE ###
+
+###> Docker config ###
+/docker/bash/ssh/*
+!/docker/bash/ssh/.gitignore
+/docker/nginx/logs/access.log
+/docker/nginx/logs/error.log
+.env
+###< Docker config ###
+
+###> App ###
+/app/
+###< App ###
