@@ -9,10 +9,7 @@ services:
   webapp:
     restart: on-failure
     environment:
-      - XDEBUG_IDEKEY=${XDEBUG_IDEKEY}
-      - XDEBUG_REMOTE_HOST=${XDEBUG_HOST}
-      - XDEBUG_REMOTE_PORT=${XDEBUG_PORT}
-      - XDEBUG_REMOTE_CONNECT_BACK=${XDEBUG_CONNECT_BACK}
+      - XDEBUG_SESSION=${XDEBUG_SESSION}
     build:
       context: .
       dockerfile: docker/Dockerfile
@@ -22,6 +19,9 @@ services:
         USER_NAME: ${USER_NAME}
         USER_EMAIL: ${USER_EMAIL}
         USER_ID: ${USER_ID}
+        XDEBUG_HOST: ${XDEBUG_HOST}
+        XDEBUG_PORT: ${XDEBUG_PORT}
+        XDEBUG_DISCOVER_CLIENT_HOST: ${XDEBUG_DISCOVER_CLIENT_HOST}
     volumes:
       - ./app/:/var/www/app
 

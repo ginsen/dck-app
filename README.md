@@ -45,7 +45,7 @@ $ docker-compose ps
 Access into container
 
 ```bash
-$ docker-compose exec web bash
+$ docker-compose exec webapp bash
 ```
 
 When you access into container you access as root, you need change to normal user profile.
@@ -54,20 +54,12 @@ When you access into container you access as root, you need change to normal use
 $ su {yourname}
 ```
 
-Now you are into your project with your profile user, then you can run command to build your symfony app, remember edit 
+Now you are into your project with your profile user, then you can run command to build your app, remember edit 
 the params of your .env app.
 
 ```bash
 $ composer install
 ...
 # yarn install
-# ./bin/console doctrine:schema:create
 # ... and other stuff
 ``` 
-
-Or run test, sonar-scanner, ...
-
-```bash
-$ ./bin/phpunit
-$ sonar-scanner
-```
