@@ -5,7 +5,9 @@ ARG USER
 ARG USER_NAME
 ARG USER_EMAIL
 ARG USER_ID
+ARG XDEBUG_HOST
 ARG XDEBUG_PORT
+ARG XDEBUG_DISCOVER_CLIENT_HOST
 
 # Install APT basic packages
 RUN apt update && apt install -y git-all git-flow unzip vim curl gnupg bash-completion libyaml-dev
@@ -40,7 +42,10 @@ RUN echo "error_reporting = E_ALL" >> /usr/local/etc/php/conf.d/docker-php-ext-x
 RUN echo "display_startup_errors = On" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN echo "display_errors = On" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN echo "xdebug.mode=debug" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN echo "xdebug.start_with_request=yes" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN echo "xdebug.client_host=${XDEBUG_HOST}" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN echo "xdebug.client_port=${XDEBUG_PORT}" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN echo "xdebug.discover_client_host=${XDEBUG_DISCOVER_CLIENT_HOST}" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php && \
