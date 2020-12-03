@@ -8,7 +8,7 @@ ARG USER_ID
 ARG XDEBUG_PORT
 
 # Install APT basic packages
-RUN apt update && apt install -y git-all git-flow unzip vim curl gnupg bash-completion
+RUN apt update && apt install -y git-all git-flow unzip vim curl gnupg bash-completion libyaml-dev
 
 # Install APT packages nodejs & yarn
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
@@ -27,8 +27,11 @@ RUN "date"
 
 # Type docker-php-ext-install to see available extensions
 RUN docker-php-ext-install pdo_mysql bcmath
+RUN pecl channel-update pecl.php.net
 RUN pecl install apcu
 RUN docker-php-ext-enable apcu
+RUN pecl install yaml
+RUN docker-php-ext-enable yaml
 
 # install xdebug
 RUN pecl install xdebug
