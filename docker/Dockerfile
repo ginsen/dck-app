@@ -34,6 +34,8 @@ RUN pecl install apcu
 RUN docker-php-ext-enable apcu
 RUN pecl install yaml
 RUN docker-php-ext-enable yaml
+RUN pecl install redis
+RUN docker-php-ext-enable redis
 
 # install xdebug
 RUN pecl install xdebug
