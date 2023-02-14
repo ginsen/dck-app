@@ -45,7 +45,7 @@ $ docker-compose ps
 Access into container
 
 ```bash
-$ docker-compose exec webapp bash
+$ docker-compose exec app bash
 ```
 
 When you access into container you access as root, you need change to normal user profile.
